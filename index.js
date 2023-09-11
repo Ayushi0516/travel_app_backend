@@ -44,7 +44,13 @@ app.use("/api/v1/users", userRoute);
 app.use("/api/v1/review", reviewRoute);
 app.use("/api/v1/booking", bookingRoute);
 
-app.listen(port, () => {
-  connect();
-  console.log("server listening on port", port);
-});
+connect().then(()=>{
+  app.listen(port, () => {
+    
+    console.log("server listening on port", port);
+  });
+})
+// app.listen(port, () => {
+//   connect();
+//   console.log("server listening on port", port);
+// });
